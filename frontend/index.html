@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tech Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">&#128187;</span>
+        <span class="logo-text">Student Tech Hub</span>
+      </div>
+      <div class="api-status" id="apiStatusBadge">
+        <span class="status-dot"></span>
+        <span id="apiStatusText">Backend: Checking...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="badge">Campus Tech Community</div>
+      <h1 class="main-title">Student Tech Hub</h1>
+      <p class="subtitle">
+        Discover upcoming tech workshops, hackathons, and bootcamps. 
+        Level up your skills and connect with fellow student creators.
+      </p>
+    </section>
+
+    <!-- Main Grid: Events & Registration -->
+    <div class="content-grid">
+      <!-- Left Column: Upcoming Events -->
+      <section class="events-card">
+        <div class="section-header">
+          <div>
+            <h2>Upcoming Technical Events</h2>
+            <p class="section-desc">Explore events curated for student developers and tech enthusiasts.</p>
+          </div>
+          <!-- Button to load events from backend -->
+          <button id="loadEventsBtn" class="btn btn-primary">
+            <span class="btn-icon">&#128260;</span>
+            <span id="btnText">Load Events</span>
+          </button>
+        </div>
+
+        <!-- Notification / Error Box for Events -->
+        <div id="eventsAlert" class="alert hidden" role="alert"></div>
+
+        <!-- Events List Container -->
+        <div id="eventsContainer" class="events-list">
+          <!-- Initial Placeholder state -->
+          <div class="empty-state" id="emptyState">
+            <div class="empty-icon">&#128197;</div>
+            <h3>No events loaded yet</h3>
+            <p>Click the <strong>"Load Events"</strong> button above to fetch the latest workshops and hackathons from the FastAPI backend.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Registration Form -->
+      <section class="register-card">
+        <div class="section-header">
+          <div>
+            <h2>Join the Hub</h2>
+            <p class="section-desc">Register with your name and email to receive event notifications and access passes.</p>
+          </div>
+        </div>
+
+        <!-- Registration Status Message Alert -->
+        <div id="registerAlert" class="alert hidden" role="alert"></div>
+
+        <!-- Registration Form -->
+        <form id="registrationForm" class="register-form" novalidate>
+          <div class="form-group">
+            <label for="studentName">Full Name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="studentName" 
+              name="studentName" 
+              placeholder="e.g. Alex Johnson" 
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="studentEmail">Email Address <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="studentEmail" 
+              name="studentEmail" 
+              placeholder="e.g. alex.johnson@student.edu" 
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <button type="submit" id="submitRegisterBtn" class="btn btn-success btn-block">
+            <span>Register Now</span>
+            <span class="btn-arrow">&rarr;</span>
+          </button>
+        </form>
+
+        <div class="card-footer-note">
+          <p>&#128274; Quick & free registration. No account password required.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 <strong>Student Tech Hub</strong> &bull; Built with HTML, CSS, JavaScript & FastAPI</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
